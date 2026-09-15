@@ -12,28 +12,23 @@
   >
 
   <style>
-    /* =========================================================
-       ARKANOS — PANDAGANG STUDIOS
-       Web oficial
-       ========================================================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #07050a;
+      --bg-soft: #0d0812;
+      --panel: #100b16;
+      --purple: #a66cff;
+      --purple-soft: #d9c3ff;
+      --gold: #ffc642;
+      --gold-light: #ffe099;
+      --white: #f8f5ff;
+      --muted: #aaa2b4;
+      --border: rgba(255,255,255,.11);
     }
 
-    :root {
-      --bg: #08070b;
-      --bg-soft: #100d16;
-      --panel: rgba(18, 14, 25, 0.82);
-      --purple: #b82cff;
-      --purple-dark: #6f17a3;
-      --gold: #f5b72e;
-      --gold-soft: #ffe09a;
-      --white: #f7f4fb;
-      --gray: #aaa3b2;
-      --border: rgba(255,255,255,.10);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -41,11 +36,11 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 50% 0%, rgba(111,23,163,.16), transparent 35%),
+        radial-gradient(circle at 50% 10%, rgba(93, 38, 128, .16), transparent 35%),
         var(--bg);
       color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
 
@@ -54,153 +49,151 @@
       text-decoration: none;
     }
 
-    /* NAV */
+    /* =========================
+       NAVEGACIÓN
+    ========================== */
 
-    nav {
-      position: fixed;
+    header {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 78px;
-      z-index: 1000;
+      z-index: 100;
+      background: rgba(7, 5, 10, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
 
+    .nav {
+      max-width: 1200px;
+      height: 72px;
+      margin: auto;
+      padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding: 0 7%;
-
-      background: rgba(7,6,10,.82);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(15px);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: 3px;
+      gap: 13px;
     }
 
-    .brand-symbol {
+    .brand-star {
       color: var(--gold);
-      font-size: 25px;
+      font-size: 28px;
+      text-shadow: 0 0 18px rgba(255,198,66,.45);
     }
 
-    .brand small {
+    .brand-text strong {
       display: block;
-      margin-top: 2px;
-      color: var(--gray);
+      letter-spacing: 4px;
+      font-size: 17px;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: #8f8798;
       font-size: 9px;
       letter-spacing: 2px;
-      font-weight: 500;
     }
 
-    .nav-links {
+    nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 34px;
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 800;
       letter-spacing: 1px;
     }
 
-    .nav-links a {
-      color: #d7d2dc;
-      transition: .2s;
+    nav a {
+      color: #cfc8d5;
+      transition: .25s;
     }
 
-    .nav-links a:hover {
+    nav a:hover {
       color: var(--gold);
     }
 
-    .store-button {
-      padding: 11px 20px;
+    .shop-button {
       border: 1px solid var(--gold);
-      border-radius: 4px;
-      color: var(--gold) !important;
+      color: var(--gold);
+      padding: 12px 22px;
+      border-radius: 5px;
     }
 
-    /* HERO */
+    /* =========================
+       PORTADA
+    ========================== */
 
     .hero {
-      min-height: 100vh;
-      position: relative;
-
+      min-height: calc(100vh - 72px);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-
-      padding: 130px 20px 80px;
-
-      background:
-        linear-gradient(to bottom, rgba(8,7,11,.25), #08070b 96%),
-        radial-gradient(circle at center, rgba(151,33,210,.25), transparent 47%);
+      padding: 90px 24px 70px;
+      position: relative;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 0;
-      opacity: .14;
-
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-
-      background-size: 55px 55px;
-      mask-image: linear-gradient(to bottom, black, transparent);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(
+        circle,
+        rgba(112, 46, 145, .20),
+        transparent 68%
+      );
+      filter: blur(10px);
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1000px;
+      max-width: 1100px;
     }
 
     .studio {
       color: var(--gold);
+      letter-spacing: 8px;
+      font-weight: 900;
       font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 6px;
-      margin-bottom: 26px;
+      margin-bottom: 32px;
     }
 
-    .hero h1 {
-      font-size: clamp(72px, 13vw, 155px);
-      line-height: .9;
-      letter-spacing: 7px;
-      font-weight: 1000;
-
+    h1 {
+      font-size: clamp(78px, 13vw, 160px);
+      line-height: .82;
+      letter-spacing: -5px;
+      font-weight: 900;
       background: linear-gradient(
         180deg,
-        #ffffff 10%,
-        #d8c9e5 50%,
-        #8f6ea9 100%
+        #fff 0%,
+        #eadfff 48%,
+        #aa82c8 100%
       );
-
       -webkit-background-clip: text;
       color: transparent;
-
-      filter: drop-shadow(0 0 30px rgba(174,44,255,.22));
+      text-shadow: 0 20px 70px rgba(127, 68, 170, .16);
     }
 
-    .hero-subtitle {
-      margin: 25px auto 0;
-      color: var(--gold-soft);
-      text-transform: uppercase;
-      letter-spacing: 6px;
+    .slogan {
+      margin-top: 30px;
+      color: var(--gold-light);
+      letter-spacing: 7px;
       font-size: 13px;
-      font-weight: bold;
+      font-weight: 900;
     }
 
     .hero-description {
-      max-width: 690px;
-      margin: 28px auto 0;
-      color: #bdb7c5;
-      font-size: 17px;
+      max-width: 720px;
+      margin: 30px auto 0;
+      color: #d5cedc;
+      font-size: 18px;
       line-height: 1.8;
     }
 
@@ -208,69 +201,71 @@
       margin-top: 38px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 15px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
-      min-width: 190px;
-      padding: 16px 25px;
-      border-radius: 4px;
-      font-weight: 900;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 225px;
+      height: 54px;
+      padding: 0 26px;
+      border-radius: 5px;
       font-size: 13px;
+      font-weight: 900;
       letter-spacing: 1px;
       transition: .25s;
     }
 
     .btn-primary {
-      color: #110b15;
-      background: linear-gradient(135deg, var(--gold), #ffe394);
-      box-shadow: 0 10px 35px rgba(245,183,46,.18);
+      color: #09070b;
+      background: linear-gradient(135deg, #ffbd27, #ffe08c);
+      box-shadow: 0 10px 35px rgba(255,190,39,.15);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 45px rgba(245,183,46,.30);
+      box-shadow: 0 15px 45px rgba(255,190,39,.25);
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.04);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--purple);
-      color: #e9c6ff;
-      transform: translateY(-3px);
+      border: 1px solid #514a57;
+      background: rgba(255,255,255,.025);
     }
 
     .platforms {
-      margin-top: 45px;
       display: flex;
       justify-content: center;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
     }
 
     .platform {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.025);
-      padding: 9px 15px;
-      color: #aaa4af;
-      font-size: 11px;
+      padding: 10px 17px;
+      color: #bdb4c6;
+      font-size: 10px;
       letter-spacing: 2px;
     }
 
-    /* GENERAL */
+    /* =========================
+       DESCUBRE ARKANOS
+    ========================== */
 
-    section {
-      padding: 110px 7%;
+    .discover {
+      padding: 110px 24px 130px;
+      border-top: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 50% 20%, rgba(89, 32, 120, .14), transparent 35%),
+        linear-gradient(180deg, #09060d 0%, #060508 100%);
     }
 
-    .section-head {
-      max-width: 750px;
-      margin: 0 auto 60px;
+    .section-header {
+      max-width: 800px;
+      margin: 0 auto 65px;
       text-align: center;
     }
 
@@ -278,343 +273,244 @@
       color: var(--gold);
       font-size: 11px;
       font-weight: 900;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
+      letter-spacing: 6px;
+      margin-bottom: 18px;
     }
 
-    .section-head h2 {
-      font-size: clamp(36px, 5vw, 62px);
-      margin-bottom: 20px;
+    .section-header h2 {
+      font-size: clamp(40px, 7vw, 72px);
       letter-spacing: -2px;
+      margin-bottom: 20px;
     }
 
-    .section-head p {
-      color: var(--gray);
+    .section-header p {
+      color: var(--muted);
       line-height: 1.8;
-      font-size: 16px;
+      font-size: 17px;
     }
 
-    /* INTRO */
-
-    .intro {
-      background:
-        radial-gradient(circle at 15% 50%, rgba(132,30,185,.10), transparent 25%),
-        #08070b;
-    }
-
-    .features {
-      max-width: 1200px;
+    .world-grid {
+      max-width: 1180px;
       margin: auto;
-
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
 
-    .feature {
-      min-height: 230px;
-      padding: 32px;
+    .world-card {
+      min-height: 540px;
       position: relative;
       overflow: hidden;
-
+      border-radius: 10px;
       border: 1px solid var(--border);
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.045),
-        rgba(255,255,255,.012)
-      );
-
-      transition: .25s;
+      background: #100b14;
+      isolation: isolate;
     }
 
-    .feature:hover {
-      transform: translateY(-5px);
-      border-color: rgba(184,44,255,.42);
+    .world-card img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      transition: transform .7s ease;
+      z-index: -3;
     }
 
-    .feature-number {
-      color: var(--purple);
-      font-size: 11px;
+    .world-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(5,4,7,.05) 20%,
+          rgba(5,4,7,.35) 55%,
+          rgba(5,4,7,.96) 100%
+        );
+      z-index: -2;
+    }
+
+    .world-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid transparent;
+      border-radius: inherit;
+      transition: .3s;
+      pointer-events: none;
+    }
+
+    .world-card:hover img {
+      transform: scale(1.045);
+    }
+
+    .world-card:hover::after {
+      border-color: rgba(255,198,66,.45);
+      box-shadow: inset 0 0 50px rgba(255,198,66,.04);
+    }
+
+    .world-info {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 32px;
+    }
+
+    .world-number {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 4px;
       font-weight: 900;
-      letter-spacing: 2px;
-      margin-bottom: 45px;
     }
 
-    .feature h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
+    .world-info h3 {
+      margin-top: 10px;
+      font-size: 34px;
+      letter-spacing: 1px;
     }
 
-    .feature p {
-      color: var(--gray);
-      line-height: 1.7;
+    .world-info p {
+      margin-top: 12px;
+      max-width: 470px;
+      color: #c7c0cb;
+      line-height: 1.6;
       font-size: 14px;
     }
 
-    /* SEASON */
+    /* =========================
+       FRANJA
+    ========================== */
 
-    .season {
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 75% 50%, rgba(117,18,156,.24), transparent 30%),
-        linear-gradient(135deg, #0b0810, #130b19);
+    .feature-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #09070c;
     }
 
-    .season-container {
-      max-width: 1200px;
+    .feature-inner {
+      max-width: 1180px;
       margin: auto;
-
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 70px;
-      align-items: center;
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    .season-badge {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 8px 12px;
+    .feature {
+      padding: 35px 25px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
 
+    .feature:last-child {
+      border-right: none;
+    }
+
+    .feature strong {
       color: var(--gold);
-      border: 1px solid rgba(245,183,46,.35);
-
-      font-size: 10px;
-      font-weight: bold;
-      letter-spacing: 3px;
-    }
-
-    .season h2 {
-      font-size: clamp(44px, 6vw, 75px);
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .season h2 span {
-      color: var(--purple);
-    }
-
-    .season-text {
-      color: #b7afbd;
-      line-height: 1.8;
-      max-width: 620px;
-    }
-
-    .season-list {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .season-item {
-      padding: 14px;
-      border-left: 2px solid var(--purple);
-      background: rgba(255,255,255,.025);
-      color: #d5cfd9;
+      display: block;
       font-size: 13px;
-    }
-
-    .varkhul-card {
-      min-height: 430px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 35px;
-
-      border: 1px solid rgba(184,44,255,.28);
-
-      background:
-        radial-gradient(circle at 50% 30%, rgba(184,44,255,.28), transparent 25%),
-        linear-gradient(to top, #0a070d, rgba(22,11,28,.5));
-    }
-
-    .varkhul-card small {
-      color: var(--gold);
-      letter-spacing: 3px;
-      font-weight: bold;
-    }
-
-    .varkhul-card h3 {
-      margin-top: 10px;
-      font-size: 33px;
-    }
-
-    .varkhul-card p {
-      margin-top: 12px;
-      color: var(--gray);
-      line-height: 1.6;
-    }
-
-    /* BATTLE PASS */
-
-    .battlepass {
-      background: #09080c;
-    }
-
-    .pass-card {
-      max-width: 1100px;
-      margin: auto;
-      padding: 55px;
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-
-      border: 1px solid var(--border);
-
-      background:
-        linear-gradient(120deg, rgba(184,44,255,.10), transparent 45%),
-        rgba(255,255,255,.018);
-    }
-
-    .pass-card h3 {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
-
-    .pass-card p {
-      color: var(--gray);
-      line-height: 1.8;
-    }
-
-    .pass-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .stat {
-      padding: 25px 15px;
-      text-align: center;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.025);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--gold);
-      font-size: 29px;
-    }
-
-    .stat span {
-      display: block;
-      margin-top: 6px;
-      color: var(--gray);
-      font-size: 10px;
       letter-spacing: 2px;
-      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    /* COMMUNITY CTA */
-
-    .community {
-      text-align: center;
-      padding-top: 140px;
-      padding-bottom: 140px;
-
-      background:
-        radial-gradient(circle at center, rgba(151,30,211,.18), transparent 30%),
-        #08070b;
+    .feature span {
+      color: #8f8798;
+      font-size: 12px;
     }
 
-    .community h2 {
-      font-size: clamp(45px, 7vw, 85px);
-      margin-bottom: 20px;
-    }
-
-    .community p {
-      max-width: 650px;
-      margin: auto;
-      color: var(--gray);
-      line-height: 1.8;
-    }
-
-    .community .hero-buttons {
-      margin-top: 35px;
-    }
-
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================== */
 
     footer {
-      border-top: 1px solid var(--border);
-      padding: 45px 7%;
+      padding: 55px 25px;
+      text-align: center;
+      background: #050407;
+    }
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
+    footer strong {
+      letter-spacing: 4px;
+    }
 
+    footer p {
+      margin-top: 12px;
       color: #77717d;
-      font-size: 11px;
+      font-size: 12px;
+      line-height: 1.7;
     }
 
-    .footer-brand {
-      color: #c8c1ce;
-      font-weight: 900;
-      letter-spacing: 3px;
-    }
+    /* =========================
+       RESPONSIVE
+    ========================== */
 
-    .footer-brand span {
-      color: var(--gold);
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .nav-links {
+    @media (max-width: 850px) {
+      nav a:not(.shop-button) {
         display: none;
       }
 
-      nav {
-        padding: 0 5%;
-      }
-
-      .features {
+      .world-grid {
         grid-template-columns: 1fr;
       }
 
-      .season-container,
-      .pass-card {
-        grid-template-columns: 1fr;
+      .world-card {
+        min-height: 480px;
       }
 
-      .season-list {
-        grid-template-columns: 1fr;
+      .feature-inner {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      footer {
-        flex-direction: column;
-        text-align: center;
+      .feature:nth-child(2) {
+        border-right: none;
+      }
+
+      .feature:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
       }
     }
 
-    @media (max-width: 550px) {
-      section {
-        padding: 85px 6%;
+    @media (max-width: 520px) {
+      .nav {
+        padding: 0 18px;
       }
 
-      .hero {
-        padding-left: 15px;
-        padding-right: 15px;
+      .brand-text strong {
+        font-size: 14px;
       }
 
-      .hero h1 {
-        letter-spacing: 2px;
+      .brand-text span {
+        font-size: 7px;
       }
 
-      .hero-subtitle {
+      .shop-button {
+        padding: 10px 14px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .studio {
+        letter-spacing: 4px;
+      }
+
+      .slogan {
         letter-spacing: 3px;
+        line-height: 1.8;
       }
 
-      .pass-card {
-        padding: 30px 20px;
+      .hero-description {
+        font-size: 15px;
       }
 
-      .pass-stats {
-        grid-template-columns: 1fr;
+      .world-info {
+        left: 23px;
+        right: 23px;
+        bottom: 24px;
+      }
+
+      .world-info h3 {
+        font-size: 28px;
       }
     }
   </style>
@@ -623,308 +519,199 @@
 <body>
 
   <!-- NAVEGACIÓN -->
+  <header>
+    <div class="nav">
 
-  <nav>
-    <a class="brand" href="#inicio">
-      <span class="brand-symbol">✦</span>
+      <a href="#" class="brand">
+        <div class="brand-star">✦</div>
 
-      <div>
-        ARKANOS
-        <small>PANDAGANG STUDIOS</small>
-      </div>
-    </a>
+        <div class="brand-text">
+          <strong>ARKANOS</strong>
+          <span>PANDAGANG STUDIOS</span>
+        </div>
+      </a>
 
-    <div class="nav-links">
-      <a href="#arkanos">ARKANOS</a>
-      <a href="#temporada">TEMPORADA</a>
-      <a href="#battlepass">BATTLE PASS</a>
-      <a href="#comunidad">COMUNIDAD</a>
-      <a href="#" class="store-button">TIENDA</a>
-    </div>
-  </nav>
-
-
-  <!-- HERO -->
-
-  <header class="hero" id="inicio">
-    <div class="hero-content">
-
-      <div class="studio">
-        PANDAGANG STUDIOS PRESENTA
-      </div>
-
-      <h1>ARKANOS</h1>
-
-      <div class="hero-subtitle">
-        FORJA TU CAMINO · CONSTRUYE TU HISTORIA
-      </div>
-
-      <p class="hero-description">
-        Un mundo Survival construido alrededor de la aventura,
-        la progresión y la comunidad. Explora, combate, comercia,
-        supera desafíos y deja tu propia historia dentro de ARKANOS.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#arkanos" class="btn btn-primary">
-          DESCUBRIR ARKANOS
-        </a>
-
-        <a href="#comunidad" class="btn btn-secondary">
-          JUGAR PRÓXIMAMENTE
-        </a>
-      </div>
-
-      <div class="platforms">
-        <div class="platform">MINECRAFT JAVA</div>
-        <div class="platform">MINECRAFT BEDROCK</div>
-        <div class="platform">TEMPORADA I</div>
-      </div>
+      <nav>
+        <a href="#arkanos">ARKANOS</a>
+        <a href="#temporada">TEMPORADA</a>
+        <a href="#battlepass">BATTLE PASS</a>
+        <a href="#comunidad">COMUNIDAD</a>
+        <a href="#tienda" class="shop-button">TIENDA</a>
+      </nav>
 
     </div>
   </header>
 
 
-  <!-- QUÉ ES ARKANOS -->
+  <!-- PORTADA -->
+  <main>
 
-  <section class="intro" id="arkanos">
+    <section class="hero">
 
-    <div class="section-head">
-      <div class="eyebrow">MÁS QUE UN SURVIVAL</div>
+      <div class="hero-content">
 
-      <h2>Tu aventura. Tu progreso. Tu historia.</h2>
-
-      <p>
-        ARKANOS combina el Survival de Minecraft con sistemas
-        propios diseñados para que siempre exista un nuevo objetivo,
-        sin convertir el progreso en una carrera por pagar más.
-      </p>
-    </div>
-
-
-    <div class="features">
-
-      <article class="feature">
-        <div class="feature-number">01 / EXPLORA</div>
-        <h3>Survival & Progresión</h3>
-        <p>
-          Construye, comercia, consigue recursos, desbloquea nuevas
-          oportunidades y desarrolla tu aventura a tu propio ritmo.
-        </p>
-      </article>
-
-      <article class="feature">
-        <div class="feature-number">02 / DESAFÍA</div>
-        <h3>Dungeons</h3>
-        <p>
-          Aventuras diseñadas para poner a prueba tu equipo,
-          preparación y capacidad para enfrentarte a enemigos especiales.
-        </p>
-      </article>
-
-      <article class="feature">
-        <div class="feature-number">03 / PROGRESA</div>
-        <h3>Minas</h3>
-        <p>
-          Desbloquea nuevas zonas mediante tu progreso económico
-          y accede a recursos cada vez más valiosos.
-        </p>
-      </article>
-
-      <article class="feature">
-        <div class="feature-number">04 / CONSTRUYE</div>
-        <h3>Parcelas</h3>
-        <p>
-          Consigue tu propio espacio, construye tu hogar y comparte
-          permisos con los jugadores en quienes confíes.
-        </p>
-      </article>
-
-      <article class="feature">
-        <div class="feature-number">05 / DESCUBRE</div>
-        <h3>Artefactos</h3>
-        <p>
-          Obtén materiales especiales durante tus combates
-          y utilízalos para conseguir objetos propios del universo ARKANOS.
-        </p>
-      </article>
-
-      <article class="feature">
-        <div class="feature-number">06 / PARTICIPA</div>
-        <h3>Eventos</h3>
-        <p>
-          Eventos comunitarios, piñatas, temporadas y encuentros
-          especiales convierten al servidor en un mundo que evoluciona.
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-
-  <!-- TEMPORADA -->
-
-  <section class="season" id="temporada">
-
-    <div class="season-container">
-
-      <div>
-        <div class="season-badge">
-          TEMPORADA I · HALLOWEEN 2026
+        <div class="studio">
+          PANDAGANG STUDIOS PRESENTA
         </div>
 
-        <h2>
-          ECLIPSE DE<br>
-          <span>LAS ÁNIMAS</span>
-        </h2>
+        <h1>ARKANOS</h1>
 
-        <p class="season-text">
-          Algo ha cambiado en ARKANOS. Durante el Eclipse,
-          criaturas marcadas recorren Survival, aparecen recompensas
-          exclusivas y la comunidad deberá enfrentarse a amenazas
-          que solamente existirán durante esta temporada.
-        </p>
-
-        <div class="season-list">
-          <div class="season-item">Noche de las Ánimas</div>
-          <div class="season-item">Crate del Eclipse</div>
-          <div class="season-item">Fragmentos de Ánima</div>
-          <div class="season-item">Mercader del Eclipse</div>
-          <div class="season-item">Recompensas exclusivas</div>
-          <div class="season-item">Eventos comunitarios</div>
-        </div>
-      </div>
-
-
-      <div class="varkhul-card">
-        <small>JEFE DE TEMPORADA</small>
-
-        <h3>☠ VARKHUL</h3>
-
-        <p>
-          <strong>EL DEVORA ALMAS</strong>
-        </p>
-
-        <p>
-          Cuando Varkhul despierta, ningún jugador puede derrotarlo
-          únicamente por su poder. La comunidad deberá unirse y
-          acumular 1,500 impactos para desterrarlo.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- BATTLE PASS -->
-
-  <section class="battlepass" id="battlepass">
-
-    <div class="section-head">
-      <div class="eyebrow">TEMPORADA I</div>
-
-      <h2>Battle Pass de ARKANOS</h2>
-
-      <p>
-        Jugar Survival también significa progresar durante la temporada.
-        Diferentes estilos de juego reciben sus propios desafíos.
-      </p>
-    </div>
-
-
-    <div class="pass-card">
-
-      <div>
-        <h3>50 niveles.<br>Una temporada.</h3>
-
-        <p>
-          Mina, tala, pesca, cultiva, caza y participa en el mundo.
-          Completa misiones durante la temporada para obtener
-          recompensas gratuitas y desbloquear nuevos objetivos.
-        </p>
-
-        <br>
-
-        <p>
-          La ruta Premium añade recompensas adicionales,
-          pero no concede progreso más rápido ni sustituye
-          el esfuerzo del jugador.
-        </p>
-      </div>
-
-
-      <div class="pass-stats">
-
-        <div class="stat">
-          <strong>50</strong>
-          <span>Niveles</span>
+        <div class="slogan">
+          FORJA TU CAMINO · CONSTRUYE TU HISTORIA
         </div>
 
-        <div class="stat">
-          <strong>2</strong>
-          <span>Rutas</span>
+        <p class="hero-description">
+          Un mundo Survival construido alrededor de la aventura,
+          la progresión y la comunidad.
+          Explora, combate, comercia, supera desafíos y deja
+          tu propia historia dentro de ARKANOS.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#arkanos" class="btn btn-primary">
+            DESCUBRIR ARKANOS
+          </a>
+
+          <span class="btn btn-secondary">
+            JUGAR PRÓXIMAMENTE
+          </span>
         </div>
 
-        <div class="stat">
-          <strong>4</strong>
-          <span>Semanas</span>
-        </div>
-
-        <div class="stat">
-          <strong>∞</strong>
-          <span>Historias</span>
+        <div class="platforms">
+          <span class="platform">MINECRAFT JAVA</span>
+          <span class="platform">MINECRAFT BEDROCK</span>
+          <span class="platform">TEMPORADA I</span>
         </div>
 
       </div>
 
-    </div>
-  </section>
+    </section>
 
 
-  <!-- COMUNIDAD -->
+    <!-- DESCUBRE ARKANOS -->
+    <section class="discover" id="arkanos">
 
-  <section class="community" id="comunidad">
+      <div class="section-header">
 
-    <div class="eyebrow">
-      EL CORAZÓN DE ARKANOS
-    </div>
+        <div class="eyebrow">
+          UN MUNDO · MUCHOS CAMINOS
+        </div>
 
-    <h2>No eres un número.</h2>
+        <h2>DESCUBRE ARKANOS</h2>
 
-    <p>
-      ARKANOS nació para construir algo más que un servidor.
-      Queremos un lugar donde puedas jugar, conocer personas,
-      crear historias y encontrar una comunidad a la que quieras regresar.
-    </p>
+        <p>
+          ARKANOS no es solamente un Survival.
+          Es un mundo conectado de progresión, economía,
+          exploración, desafíos y lugares creados para que
+          cada jugador encuentre su propio camino.
+        </p>
 
-    <div class="hero-buttons">
-      <a href="#" class="btn btn-primary">
-        DISCORD · PRÓXIMAMENTE
-      </a>
+      </div>
 
-      <a href="#" class="btn btn-secondary">
-        GUÍA DE ARKANOS
-      </a>
-    </div>
 
-  </section>
+      <div class="world-grid">
+
+        <!-- LOBBY / SURVIVAL -->
+        <article class="world-card">
+
+          <img
+            src="assets/lobby.png"
+            alt="Lobby oficial de ARKANOS"
+            loading="lazy"
+          >
+
+          <div class="world-info">
+
+            <div class="world-number">
+              01 · EL COMIENZO
+            </div>
+
+            <h3>SURVIVAL</h3>
+
+            <p>
+              Comienza tu aventura, conoce a los maestros de ARKANOS,
+              comercia, progresa y adéntrate en un Survival construido
+              alrededor de una economía y progresión propias.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- MINAS -->
+        <article class="world-card">
+
+          <img
+            src="assets/minas.png"
+            alt="Minas de ARKANOS"
+            loading="lazy"
+          >
+
+          <div class="world-info">
+
+            <div class="world-number">
+              02 · PROGRESA
+            </div>
+
+            <h3>MINAS</h3>
+
+            <p>
+              Extrae recursos y avanza por el sistema de minería
+              de ARKANOS. Cada paso forma parte de una progresión
+              diseñada para recompensar el tiempo y la exploración.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="feature-strip">
+
+      <div class="feature-inner">
+
+        <div class="feature">
+          <strong>JAVA + BEDROCK</strong>
+          <span>Una misma aventura.</span>
+        </div>
+
+        <div class="feature">
+          <strong>ECONOMÍA</strong>
+          <span>Comercia y progresa.</span>
+        </div>
+
+        <div class="feature">
+          <strong>DUNGEONS</strong>
+          <span>Desafíos y bosses.</span>
+        </div>
+
+        <div class="feature">
+          <strong>EVENTOS</strong>
+          <span>Contenido por temporadas.</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
 
 
   <!-- FOOTER -->
-
   <footer>
 
-    <div class="footer-brand">
-      <span>✦</span> PANDAGANG STUDIOS
-    </div>
+    <strong>✦ ARKANOS ✦</strong>
 
-    <div>
-      ARKANOS · Minecraft Java + Bedrock
-    </div>
-
-    <div>
-      © 2026 PANDAGANG STUDIOS
-    </div>
+    <p>
+      Una experiencia de Minecraft creada por PANDAGANG STUDIOS.<br>
+      Minecraft Java + Bedrock.
+    </p>
 
   </footer>
 
