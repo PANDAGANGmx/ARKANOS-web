@@ -37,7 +37,7 @@
 
     body {
       background:
-        radial-gradient(circle at 50% 10%, rgba(93, 38, 128, .16), transparent 35%),
+        radial-gradient(circle at 50% 10%, rgba(93,38,128,.16), transparent 35%),
         var(--bg);
       color: var(--white);
       font-family: Arial, Helvetica, sans-serif;
@@ -49,13 +49,15 @@
       text-decoration: none;
     }
 
-    /* NAVEGACIÓN */
+    /* =========================
+       NAVEGACIÓN
+    ========================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 5, 10, .92);
+      background: rgba(7,5,10,.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -121,7 +123,9 @@
       border-radius: 5px;
     }
 
-    /* PORTADA */
+    /* =========================
+       PORTADA
+    ========================= */
 
     .hero {
       min-height: calc(100vh - 72px);
@@ -139,11 +143,12 @@
       position: absolute;
       width: 900px;
       height: 600px;
-      background: radial-gradient(
-        circle,
-        rgba(112, 46, 145, .23),
-        transparent 68%
-      );
+      background:
+        radial-gradient(
+          circle,
+          rgba(112,46,145,.23),
+          transparent 68%
+        );
       filter: blur(10px);
       pointer-events: none;
     }
@@ -162,8 +167,6 @@
       font-size: 12px;
       margin-bottom: 15px;
     }
-
-    /* LOGO OFICIAL */
 
     .arkanos-logo {
       display: block;
@@ -188,7 +191,6 @@
     }
 
     .slogan {
-      margin-top: 0;
       color: var(--gold-light);
       letter-spacing: 7px;
       font-size: 13px;
@@ -227,7 +229,7 @@
 
     .btn-primary {
       color: #09070b;
-      background: linear-gradient(135deg, #ffbd27, #ffe08c);
+      background: linear-gradient(135deg,#ffbd27,#ffe08c);
       box-shadow: 0 10px 35px rgba(255,190,39,.15);
     }
 
@@ -257,18 +259,20 @@
       letter-spacing: 2px;
     }
 
-    /* DESCUBRE ARKANOS */
+    /* =========================
+       DESCUBRE ARKANOS
+    ========================= */
 
     .discover {
       padding: 110px 24px 130px;
       border-top: 1px solid var(--border);
       background:
-        radial-gradient(circle at 50% 20%, rgba(89, 32, 120, .14), transparent 35%),
-        linear-gradient(180deg, #09060d 0%, #060508 100%);
+        radial-gradient(circle at 50% 20%, rgba(89,32,120,.14), transparent 35%),
+        linear-gradient(180deg,#09060d 0%,#060508 100%);
     }
 
     .section-header {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 65px;
       text-align: center;
     }
@@ -282,7 +286,7 @@
     }
 
     .section-header h2 {
-      font-size: clamp(40px, 7vw, 72px);
+      font-size: clamp(40px,7vw,72px);
       letter-spacing: -2px;
       margin-bottom: 20px;
     }
@@ -297,7 +301,7 @@
       max-width: 1180px;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
       gap: 24px;
     }
 
@@ -328,8 +332,8 @@
       background:
         linear-gradient(
           180deg,
-          rgba(5,4,7,.05) 20%,
-          rgba(5,4,7,.35) 55%,
+          rgba(5,4,7,.03) 15%,
+          rgba(5,4,7,.28) 50%,
           rgba(5,4,7,.96) 100%
         );
       z-index: -2;
@@ -376,13 +380,196 @@
 
     .world-info p {
       margin-top: 12px;
-      max-width: 470px;
+      max-width: 490px;
       color: #c7c0cb;
       line-height: 1.6;
       font-size: 14px;
     }
 
-    /* FRANJA */
+    /* DUNGEON */
+
+    .dungeon-card::after {
+      border-color: rgba(166,108,255,.12);
+    }
+
+    .dungeon-card .world-number {
+      color: #c499ff;
+    }
+
+    /* CASINO */
+
+    .casino-card .world-number {
+      color: #ffe078;
+    }
+
+    /* CRATES */
+
+    .crates-card .world-number {
+      color: #c56cff;
+    }
+
+    /* =========================
+       EVENTO HALLOWEEN
+    ========================= */
+
+    .event-section {
+      padding: 120px 24px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(108,28,140,.22), transparent 42%),
+        #050307;
+    }
+
+    .event-container {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .event-card {
+      min-height: 660px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(186,84,255,.28);
+      border-radius: 12px;
+      isolation: isolate;
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.45),
+        0 0 70px rgba(111,32,145,.08);
+    }
+
+    .event-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+      transition: transform 1s ease;
+    }
+
+    .event-card:hover img {
+      transform: scale(1.025);
+    }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4,2,7,.97) 0%,
+          rgba(4,2,7,.80) 35%,
+          rgba(4,2,7,.22) 70%,
+          rgba(4,2,7,.15) 100%
+        );
+      z-index: -2;
+    }
+
+    .event-content {
+      width: 52%;
+      padding: 85px 60px;
+    }
+
+    .event-tag {
+      display: inline-block;
+      padding: 9px 13px;
+      border: 1px solid rgba(205,102,255,.45);
+      color: #d98aff;
+      background: rgba(117,34,151,.14);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+
+    .event-content h2 {
+      font-size: clamp(42px,6vw,76px);
+      line-height: .98;
+      letter-spacing: -2px;
+    }
+
+    .event-content h3 {
+      color: #d78cff;
+      margin-top: 15px;
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+
+    .event-content p {
+      color: #c9c0ce;
+      max-width: 500px;
+      margin-top: 25px;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .event-status {
+      margin-top: 30px;
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 900;
+    }
+
+    /* =========================
+       PRÓXIMAMENTE
+    ========================= */
+
+    .coming {
+      padding: 120px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(86,32,120,.13), transparent 38%),
+        #08060b;
+    }
+
+    .coming-grid {
+      max-width: 1100px;
+      margin: 55px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .coming-card {
+      padding: 42px 25px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.018);
+      border-radius: 8px;
+      transition: .3s;
+    }
+
+    .coming-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,198,66,.35);
+    }
+
+    .coming-card span {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 3px;
+      font-weight: 900;
+    }
+
+    .coming-card h3 {
+      margin-top: 14px;
+      font-size: 23px;
+    }
+
+    .coming-card p {
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    /* =========================
+       FRANJA
+    ========================= */
 
     .feature-strip {
       border-top: 1px solid var(--border);
@@ -394,7 +581,7 @@
       max-width: 1180px;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4,1fr);
     }
 
     .feature {
@@ -420,7 +607,9 @@
       font-size: 12px;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       padding: 55px 25px;
@@ -439,9 +628,12 @@
       line-height: 1.7;
     }
 
-    /* RESPONSIVE */
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
     @media (max-width: 850px) {
+
       nav a:not(.shop-button) {
         display: none;
       }
@@ -451,11 +643,30 @@
       }
 
       .world-card {
-        min-height: 480px;
+        min-height: 500px;
+      }
+
+      .event-card::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(4,2,7,.15) 0%,
+            rgba(4,2,7,.45) 45%,
+            rgba(4,2,7,.97) 100%
+          );
+      }
+
+      .event-content {
+        width: 100%;
+        padding: 330px 35px 45px;
+      }
+
+      .coming-grid {
+        grid-template-columns: 1fr;
       }
 
       .feature-inner {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
       }
 
       .feature:nth-child(2) {
@@ -467,12 +678,13 @@
       }
 
       .arkanos-logo {
-        width: min(720px, 96vw);
+        width: min(720px,96vw);
         margin: -5px auto -18px;
       }
     }
 
     @media (max-width: 520px) {
+
       .nav {
         padding: 0 18px;
       }
@@ -521,23 +733,31 @@
       .world-info h3 {
         font-size: 28px;
       }
+
+      .event-content {
+        padding: 300px 25px 35px;
+      }
     }
+
   </style>
 </head>
 
 <body>
 
   <!-- NAVEGACIÓN -->
+
   <header>
     <div class="nav">
 
       <a href="#" class="brand">
+
         <div class="brand-star">✦</div>
 
         <div class="brand-text">
           <strong>ARKANOS</strong>
           <span>PANDAGANG STUDIOS</span>
         </div>
+
       </a>
 
       <nav>
@@ -552,8 +772,9 @@
   </header>
 
 
-  <!-- PORTADA -->
   <main>
+
+    <!-- PORTADA -->
 
     <section class="hero">
 
@@ -581,6 +802,7 @@
         </p>
 
         <div class="hero-buttons">
+
           <a href="#arkanos" class="btn btn-primary">
             DESCUBRIR ARKANOS
           </a>
@@ -588,6 +810,7 @@
           <span class="btn btn-secondary">
             JUGAR PRÓXIMAMENTE
           </span>
+
         </div>
 
         <div class="platforms">
@@ -602,6 +825,7 @@
 
 
     <!-- DESCUBRE ARKANOS -->
+
     <section class="discover" id="arkanos">
 
       <div class="section-header">
@@ -613,10 +837,9 @@
         <h2>DESCUBRE ARKANOS</h2>
 
         <p>
-          ARKANOS no es solamente un Survival.
-          Es un mundo conectado de progresión, economía,
-          exploración, desafíos y lugares creados para que
-          cada jugador encuentre su propio camino.
+          ARKANOS no es solamente un Survival. Es un mundo conectado
+          de progresión, economía, exploración, desafíos y sistemas
+          creados para que cada jugador construya su propia historia.
         </p>
 
       </div>
@@ -624,12 +847,14 @@
 
       <div class="world-grid">
 
+
         <!-- SURVIVAL -->
+
         <article class="world-card">
 
           <img
             src="assets/lobby.png"
-            alt="Lobby oficial de ARKANOS"
+            alt="Survival de ARKANOS"
             loading="lazy"
           >
 
@@ -643,8 +868,8 @@
 
             <p>
               Comienza tu aventura, conoce a los maestros de ARKANOS,
-              comercia, progresa y adéntrate en un Survival construido
-              alrededor de una economía y progresión propias.
+              comercia, explora y progresa dentro de un Survival
+              construido alrededor de una economía y progresión propias.
             </p>
 
           </div>
@@ -653,6 +878,7 @@
 
 
         <!-- MINAS -->
+
         <article class="world-card">
 
           <img
@@ -671,8 +897,124 @@
 
             <p>
               Extrae recursos y avanza por el sistema de minería
-              de ARKANOS. Cada paso forma parte de una progresión
-              diseñada para recompensar el tiempo y la exploración.
+              de ARKANOS. Progresa, mejora tu equipo y alcanza
+              nuevos objetivos mientras construyes tu camino.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- DUNGEON -->
+
+        <article class="world-card dungeon-card">
+
+          <img
+            src="assets/Dungeon.png"
+            alt="Dungeon de ARKANOS"
+            loading="lazy"
+          >
+
+          <div class="world-info">
+
+            <div class="world-number">
+              03 · ENFRENTA EL DESAFÍO
+            </div>
+
+            <h3>DUNGEONS</h3>
+
+            <p>
+              Adéntrate en lugares peligrosos, combate enemigos
+              y avanza hasta enfrentarte a poderosos jefes.
+              Prepárate antes de entrar: no todos regresan igual.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- CASINO -->
+
+        <article class="world-card casino-card">
+
+          <img
+            src="assets/Casino.png"
+            alt="Casino Arcano"
+            loading="lazy"
+          >
+
+          <div class="world-info">
+
+            <div class="world-number">
+              04 · PRUEBA TU SUERTE
+            </div>
+
+            <h3>CASINO ARCANO</h3>
+
+            <p>
+              Visita el Casino Arcano, consigue fichas y participa
+              en juegos donde cada decisión puede cambiar tu fortuna.
+              Un lugar diferente para descansar de la aventura.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- CRATES -->
+
+        <article class="world-card crates-card">
+
+          <img
+            src="assets/Crates.png"
+            alt="Crates de ARKANOS"
+            loading="lazy"
+          >
+
+          <div class="world-info">
+
+            <div class="world-number">
+              05 · COLECCIONA
+            </div>
+
+            <h3>ARKANOS CRATES</h3>
+
+            <p>
+              Consigue llaves mediante el juego, eventos, desafíos
+              y contenido especial. Descubre recompensas, objetos
+              exclusivos y coleccionables dentro de ARKANOS.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <!-- EVENTOS -->
+
+        <article class="world-card">
+
+          <img
+            src="assets/Evento.png"
+            alt="Eventos especiales de ARKANOS"
+            loading="lazy"
+          >
+
+          <div class="world-info">
+
+            <div class="world-number">
+              06 · EL MUNDO CAMBIA
+            </div>
+
+            <h3>EVENTOS</h3>
+
+            <p>
+              ARKANOS evoluciona con eventos y temporadas especiales.
+              Nuevos enemigos, desafíos, recompensas y amenazas
+              aparecerán a lo largo de la historia del servidor.
             </p>
 
           </div>
@@ -684,7 +1026,137 @@
     </section>
 
 
+    <!-- EVENTO HALLOWEEN -->
+
+    <section class="event-section" id="temporada">
+
+      <div class="event-container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            EVENTO ESPECIAL · HALLOWEEN
+          </div>
+
+          <h2>UNA NUEVA AMENAZA</h2>
+
+          <p>
+            Cuando llegue Halloween, algo despertará en ARKANOS.
+          </p>
+
+        </div>
+
+
+        <div class="event-card">
+
+          <img
+            src="assets/Evento.png"
+            alt="Varkhul, el Devora Almas"
+            loading="lazy"
+          >
+
+          <div class="event-content">
+
+            <div class="event-tag">
+              EVENTO DE HALLOWEEN
+            </div>
+
+            <h2>VARKHUL</h2>
+
+            <h3>EL DEVORA ALMAS</h3>
+
+            <p>
+              Una amenaza especial llegará durante Halloween.
+              Los jugadores deberán prepararse para enfrentarse
+              a Varkhul y superar uno de los desafíos temporales
+              de ARKANOS.
+            </p>
+
+            <div class="event-status">
+              ✦ PRÓXIMAMENTE EN ARKANOS ✦
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRÓXIMAS SECCIONES -->
+
+    <section class="coming">
+
+      <div class="section-header">
+
+        <div class="eyebrow">
+          EL PROYECTO CONTINÚA
+        </div>
+
+        <h2>MÁS ALLÁ DEL SURVIVAL</h2>
+
+        <p>
+          ARKANOS seguirá creciendo con nuevos sistemas,
+          temporadas y contenido para su comunidad.
+        </p>
+
+      </div>
+
+
+      <div class="coming-grid">
+
+        <div class="coming-card" id="battlepass">
+
+          <span>PRÓXIMAMENTE</span>
+
+          <h3>BATTLE PASS</h3>
+
+          <p>
+            Progresión por temporada con recompensas
+            gratuitas y contenido adicional.
+          </p>
+
+        </div>
+
+
+        <div class="coming-card" id="comunidad">
+
+          <span>PANDAGANG STUDIOS</span>
+
+          <h3>COMUNIDAD</h3>
+
+          <p>
+            ARKANOS está siendo construido alrededor
+            de sus jugadores y de una comunidad que
+            crecerá junto al servidor.
+          </p>
+
+        </div>
+
+
+        <div class="coming-card" id="tienda">
+
+          <span>PRÓXIMAMENTE</span>
+
+          <h3>TIENDA</h3>
+
+          <p>
+            Rangos, paquetes y contenido de apoyo para
+            quienes quieran formar parte del crecimiento
+            de ARKANOS.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     <!-- CARACTERÍSTICAS -->
+
     <section class="feature-strip">
 
       <div class="feature-inner">
@@ -717,6 +1189,7 @@
 
 
   <!-- FOOTER -->
+
   <footer>
 
     <strong>✦ ARKANOS ✦</strong>
