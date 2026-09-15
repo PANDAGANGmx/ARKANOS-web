@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ARKANOS | Panda Gang Studios</title>
+
+  <meta
+    name="description"
+    content="ARKANOS es una experiencia Survival para Minecraft Java y Bedrock desarrollada por Panda Gang Studios."
+  >
+
+  <style>
+    /* =========================================================
+       ARKANOS — PANDA GANG STUDIOS
+       Web oficial
+       ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #08070b;
+      --bg-soft: #100d16;
+      --panel: rgba(18, 14, 25, 0.82);
+      --purple: #b82cff;
+      --purple-dark: #6f17a3;
+      --gold: #f5b72e;
+      --gold-soft: #ffe09a;
+      --white: #f7f4fb;
+      --gray: #aaa3b2;
+      --border: rgba(255,255,255,.10);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(111,23,163,.16), transparent 35%),
+        var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAV */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 78px;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 7%;
+
+      background: rgba(7,6,10,.82);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(15px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .brand-symbol {
+      color: var(--gold);
+      font-size: 25px;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--gray);
+      font-size: 9px;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      color: #d7d2dc;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .store-button {
+      padding: 11px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      color: var(--gold) !important;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      padding: 130px 20px 80px;
+
+      background:
+        linear-gradient(to bottom, rgba(8,7,11,.25), #08070b 96%),
+        radial-gradient(circle at center, rgba(151,33,210,.25), transparent 47%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .14;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+
+      background-size: 55px 55px;
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+    }
+
+    .studio {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 6px;
+      margin-bottom: 26px;
+    }
+
+    .hero h1 {
+      font-size: clamp(72px, 13vw, 155px);
+      line-height: .9;
+      letter-spacing: 7px;
+      font-weight: 1000;
+
+      background: linear-gradient(
+        180deg,
+        #ffffff 10%,
+        #d8c9e5 50%,
+        #8f6ea9 100%
+      );
+
+      -webkit-background-clip: text;
+      color: transparent;
+
+      filter: drop-shadow(0 0 30px rgba(174,44,255,.22));
+    }
+
+    .hero-subtitle {
+      margin: 25px auto 0;
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .hero-description {
+      max-width: 690px;
+      margin: 28px auto 0;
+      color: #bdb7c5;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      min-width: 190px;
+      padding: 16px 25px;
+      border-radius: 4px;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      color: #110b15;
+      background: linear-gradient(135deg, var(--gold), #ffe394);
+      box-shadow: 0 10px 35px rgba(245,183,46,.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 45px rgba(245,183,46,.30);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--purple);
+      color: #e9c6ff;
+      transform: translateY(-3px);
+    }
+
+    .platforms {
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .platform {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      padding: 9px 15px;
+      color: #aaa4af;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 110px 7%;
+    }
+
+    .section-head {
+      max-width: 750px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(36px, 5vw, 62px);
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .section-head p {
+      color: var(--gray);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* INTRO */
+
+    .intro {
+      background:
+        radial-gradient(circle at 15% 50%, rgba(132,30,185,.10), transparent 25%),
+        #08070b;
+    }
+
+    .features {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      min-height: 230px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.045),
+        rgba(255,255,255,.012)
+      );
+
+      transition: .25s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      border-color: rgba(184,44,255,.42);
+    }
+
+    .feature-number {
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 45px;
+    }
+
+    .feature h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* SEASON */
+
+    .season {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 75% 50%, rgba(117,18,156,.24), transparent 30%),
+        linear-gradient(135deg, #0b0810, #130b19);
+    }
+
+    .season-container {
+      max-width: 1200px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .season-badge {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 12px;
+
+      color: var(--gold);
+      border: 1px solid rgba(245,183,46,.35);
+
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .season h2 {
+      font-size: clamp(44px, 6vw, 75px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .season h2 span {
+      color: var(--purple);
+    }
+
+    .season-text {
+      color: #b7afbd;
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    .season-list {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .season-item {
+      padding: 14px;
+      border-left: 2px solid var(--purple);
+      background: rgba(255,255,255,.025);
+      color: #d5cfd9;
+      font-size: 13px;
+    }
+
+    .varkhul-card {
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 35px;
+
+      border: 1px solid rgba(184,44,255,.28);
+
+      background:
+        radial-gradient(circle at 50% 30%, rgba(184,44,255,.28), transparent 25%),
+        linear-gradient(to top, #0a070d, rgba(22,11,28,.5));
+    }
+
+    .varkhul-card small {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .varkhul-card h3 {
+      margin-top: 10px;
+      font-size: 33px;
+    }
+
+    .varkhul-card p {
+      margin-top: 12px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* BATTLE PASS */
+
+    .battlepass {
+      background: #09080c;
+    }
+
+    .pass-card {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(120deg, rgba(184,44,255,.10), transparent 45%),
+        rgba(255,255,255,.018);
+    }
+
+    .pass-card h3 {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .pass-card p {
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .pass-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 25px 15px;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 29px;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--gray);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* COMMUNITY CTA */
+
+    .community {
+      text-align: center;
+      padding-top: 140px;
+      padding-bottom: 140px;
+
+      background:
+        radial-gradient(circle at center, rgba(151,30,211,.18), transparent 30%),
+        #08070b;
+    }
+
+    .community h2 {
+      font-size: clamp(45px, 7vw, 85px);
+      margin-bottom: 20px;
+    }
+
+    .community p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .community .hero-buttons {
+      margin-top: 35px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 45px 7%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+
+      color: #77717d;
+      font-size: 11px;
+    }
+
+    .footer-brand {
+      color: #c8c1ce;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .footer-brand span {
+      color: var(--gold);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      nav {
+        padding: 0 5%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .season-container,
+      .pass-card {
+        grid-template-columns: 1fr;
+      }
+
+      .season-list {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 85px 6%;
+      }
+
+      .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .hero h1 {
+        letter-spacing: 2px;
+      }
+
+      .hero-subtitle {
+        letter-spacing: 3px;
+      }
+
+      .pass-card {
+        padding: 30px 20px;
+      }
+
+      .pass-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+
+  <nav>
+    <a class="brand" href="#inicio">
+      <span class="brand-symbol">✦</span>
+
+      <div>
+        ARKANOS
+        <small>PANDA GANG STUDIOS</small>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#arkanos">ARKANOS</a>
+      <a href="#temporada">TEMPORADA</a>
+      <a href="#battlepass">BATTLE PASS</a>
+      <a href="#comunidad">COMUNIDAD</a>
+      <a href="#" class="store-button">TIENDA</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero" id="inicio">
+    <div class="hero-content">
+
+      <div class="studio">
+        PANDA GANG STUDIOS PRESENTA
+      </div>
+
+      <h1>ARKANOS</h1>
+
+      <div class="hero-subtitle">
+        FORJA TU CAMINO · CONSTRUYE TU HISTORIA
+      </div>
+
+      <p class="hero-description">
+        Un mundo Survival construido alrededor de la aventura,
+        la progresión y la comunidad. Explora, combate, comercia,
+        supera desafíos y deja tu propia historia dentro de ARKANOS.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#arkanos" class="btn btn-primary">
+          DESCUBRIR ARKANOS
+        </a>
+
+        <a href="#comunidad" class="btn btn-secondary">
+          JUGAR PRÓXIMAMENTE
+        </a>
+      </div>
+
+      <div class="platforms">
+        <div class="platform">MINECRAFT JAVA</div>
+        <div class="platform">MINECRAFT BEDROCK</div>
+        <div class="platform">TEMPORADA I</div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- QUÉ ES ARKANOS -->
+
+  <section class="intro" id="arkanos">
+
+    <div class="section-head">
+      <div class="eyebrow">MÁS QUE UN SURVIVAL</div>
+
+      <h2>Tu aventura. Tu progreso. Tu historia.</h2>
+
+      <p>
+        ARKANOS combina el Survival de Minecraft con sistemas
+        propios diseñados para que siempre exista un nuevo objetivo,
+        sin convertir el progreso en una carrera por pagar más.
+      </p>
+    </div>
+
+
+    <div class="features">
+
+      <article class="feature">
+        <div class="feature-number">01 / EXPLORA</div>
+        <h3>Survival & Progresión</h3>
+        <p>
+          Construye, comercia, consigue recursos, desbloquea nuevas
+          oportunidades y desarrolla tu aventura a tu propio ritmo.
+        </p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-number">02 / DESAFÍA</div>
+        <h3>Dungeons</h3>
+        <p>
+          Aventuras diseñadas para poner a prueba tu equipo,
+          preparación y capacidad para enfrentarte a enemigos especiales.
+        </p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-number">03 / PROGRESA</div>
+        <h3>Minas</h3>
+        <p>
+          Desbloquea nuevas zonas mediante tu progreso económico
+          y accede a recursos cada vez más valiosos.
+        </p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-number">04 / CONSTRUYE</div>
+        <h3>Parcelas</h3>
+        <p>
+          Consigue tu propio espacio, construye tu hogar y comparte
+          permisos con los jugadores en quienes confíes.
+        </p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-number">05 / DESCUBRE</div>
+        <h3>Artefactos</h3>
+        <p>
+          Obtén materiales especiales durante tus combates
+          y utilízalos para conseguir objetos propios del universo ARKANOS.
+        </p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-number">06 / PARTICIPA</div>
+        <h3>Eventos</h3>
+        <p>
+          Eventos comunitarios, piñatas, temporadas y encuentros
+          especiales convierten al servidor en un mundo que evoluciona.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- TEMPORADA -->
+
+  <section class="season" id="temporada">
+
+    <div class="season-container">
+
+      <div>
+        <div class="season-badge">
+          TEMPORADA I · HALLOWEEN 2026
+        </div>
+
+        <h2>
+          ECLIPSE DE<br>
+          <span>LAS ÁNIMAS</span>
+        </h2>
+
+        <p class="season-text">
+          Algo ha cambiado en ARKANOS. Durante el Eclipse,
+          criaturas marcadas recorren Survival, aparecen recompensas
+          exclusivas y la comunidad deberá enfrentarse a amenazas
+          que solamente existirán durante esta temporada.
+        </p>
+
+        <div class="season-list">
+          <div class="season-item">Noche de las Ánimas</div>
+          <div class="season-item">Crate del Eclipse</div>
+          <div class="season-item">Fragmentos de Ánima</div>
+          <div class="season-item">Mercader del Eclipse</div>
+          <div class="season-item">Recompensas exclusivas</div>
+          <div class="season-item">Eventos comunitarios</div>
+        </div>
+      </div>
+
+
+      <div class="varkhul-card">
+        <small>JEFE DE TEMPORADA</small>
+
+        <h3>☠ VARKHUL</h3>
+
+        <p>
+          <strong>EL DEVORA ALMAS</strong>
+        </p>
+
+        <p>
+          Cuando Varkhul despierta, ningún jugador puede derrotarlo
+          únicamente por su poder. La comunidad deberá unirse y
+          acumular 1,500 impactos para desterrarlo.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BATTLE PASS -->
+
+  <section class="battlepass" id="battlepass">
+
+    <div class="section-head">
+      <div class="eyebrow">TEMPORADA I</div>
+
+      <h2>Battle Pass de ARKANOS</h2>
+
+      <p>
+        Jugar Survival también significa progresar durante la temporada.
+        Diferentes estilos de juego reciben sus propios desafíos.
+      </p>
+    </div>
+
+
+    <div class="pass-card">
+
+      <div>
+        <h3>50 niveles.<br>Una temporada.</h3>
+
+        <p>
+          Mina, tala, pesca, cultiva, caza y participa en el mundo.
+          Completa misiones durante la temporada para obtener
+          recompensas gratuitas y desbloquear nuevos objetivos.
+        </p>
+
+        <br>
+
+        <p>
+          La ruta Premium añade recompensas adicionales,
+          pero no concede progreso más rápido ni sustituye
+          el esfuerzo del jugador.
+        </p>
+      </div>
+
+
+      <div class="pass-stats">
+
+        <div class="stat">
+          <strong>50</strong>
+          <span>Niveles</span>
+        </div>
+
+        <div class="stat">
+          <strong>2</strong>
+          <span>Rutas</span>
+        </div>
+
+        <div class="stat">
+          <strong>4</strong>
+          <span>Semanas</span>
+        </div>
+
+        <div class="stat">
+          <strong>∞</strong>
+          <span>Historias</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- COMUNIDAD -->
+
+  <section class="community" id="comunidad">
+
+    <div class="eyebrow">
+      EL CORAZÓN DE ARKANOS
+    </div>
+
+    <h2>No eres un número.</h2>
+
+    <p>
+      ARKANOS nació para construir algo más que un servidor.
+      Queremos un lugar donde puedas jugar, conocer personas,
+      crear historias y encontrar una comunidad a la que quieras regresar.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-primary">
+        DISCORD · PRÓXIMAMENTE
+      </a>
+
+      <a href="#" class="btn btn-secondary">
+        GUÍA DE ARKANOS
+      </a>
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-brand">
+      <span>✦</span> PANDA GANG STUDIOS
+    </div>
+
+    <div>
+      ARKANOS · Minecraft Java + Bedrock
+    </div>
+
+    <div>
+      © 2026 Panda Gang Studios
+    </div>
+
+  </footer>
+
+</body>
+</html>
