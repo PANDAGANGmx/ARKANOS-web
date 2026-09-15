@@ -1199,7 +1199,7 @@
 
         <!-- EVENTOS -->
 
-        <article class="world-card" onclick="document.getElementById('temporada').scrollIntoView()">
+        <article class="world-card" onclick="openInfo('eventos')">
 
           <img
             src="assets/Evento.png"
@@ -1312,32 +1312,28 @@
       <div class="coming-grid">
 
         <div class="coming-card" id="battlepass">
-
-          <span>PRÓXIMAMENTE</span>
-
+          <span>DISPONIBLE · TEMPORADA I</span>
           <h3>BATTLE PASS</h3>
-
           <p>
-            Progresión por temporada con recompensas
-            gratuitas y contenido adicional.
+            Pase de temporada ya activo con ruta GRATIS y PREMIUM.
+            Completa misiones de minería, tala, exploración, combate,
+            crafteo, cultivo y más para avanzar y reclamar recompensas.
           </p>
-
         </div>
 
 
-        <div class="coming-card" id="comunidad">
-
-          <span>PANDAGANG STUDIOS</span>
-
+        <a class="coming-card" id="comunidad"
+           href="https://discord.gg/tDvgH5fjKn"
+           target="_blank"
+           rel="noopener noreferrer"
+           style="display:block;text-decoration:none;color:inherit;cursor:pointer;">
+          <span>DISCORD OFICIAL</span>
           <h3>COMUNIDAD</h3>
-
           <p>
-            ARKANOS está siendo construido alrededor
-            de sus jugadores y de una comunidad que
-            crecerá junto al servidor.
+            Noticias, eventos y actualizaciones de ARKANOS.
+            Haz clic para entrar al Discord y formar parte de la GANG.
           </p>
-
-        </div>
+        </a>
 
 
         <div class="coming-card" id="tienda">
@@ -1459,7 +1455,7 @@
           </p>
 
           <img
-            src="assets/PANDAGANG.png"
+            src="assets/PANDAGANGFINAL.png"
             alt="PANDAGANG STUDIOS"
             class="studio-logo"
             loading="lazy"
@@ -1599,6 +1595,20 @@
           <li>Ítems especiales de colección que recibirán nuevos tradeos.</li>
         </ul>
         <p>Acceso: <strong>/warps → Crates</strong>. Los nombres definitivos de las cuatro cajas se añadirán cuando queden confirmados.</p>
+      `,
+
+      eventos: `
+        <span class="tag">06 · EVENTO ACTIVO · HALLOWEEN</span>
+        <h2>VARKHUL, EL DEVORA ALMAS</h2>
+        <p>El evento de Halloween ya está activo. Entra a la zona de Eventos y enfréntate a Varkhul junto a la comunidad.</p>
+        <ul>
+          <li>Accede mediante <strong>/warps → Eventos</strong>.</li>
+          <li>El sistema registra la contribución de daño de los participantes.</li>
+          <li>El Top 1, 2 y 3 recibe las recompensas principales según su contribución.</li>
+          <li>Los demás participantes también reciben una recompensa acorde a su participación.</li>
+          <li>Entre los premios puede haber llaves, Arcas y objetos especiales.</li>
+        </ul>
+        <p>Prepárate antes de entrar: Varkhul es una amenaza especial de temporada.</p>
       `
 
     };
