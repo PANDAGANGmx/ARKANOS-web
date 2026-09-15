@@ -628,6 +628,196 @@
       line-height: 1.7;
     }
 
+
+    .world-card { cursor: pointer; }
+    .world-more {
+      display:inline-block;
+      margin-top:16px;
+      color:var(--gold-light);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:2px;
+    }
+
+    .story-section,
+    .founder-section {
+      padding:120px 24px;
+      border-top:1px solid var(--border);
+      background:
+        radial-gradient(circle at 50% 30%,rgba(91,37,130,.12),transparent 40%),
+        #08060b;
+    }
+
+    .story-wrap {
+      max-width:980px;
+      margin:auto;
+      color:#c9c1ce;
+      font-size:16px;
+      line-height:1.9;
+    }
+
+    .story-wrap p + p { margin-top:20px; }
+
+    .story-quote {
+      margin:32px 0;
+      padding:24px 28px;
+      border-left:3px solid var(--gold);
+      background:rgba(255,198,66,.035);
+      color:var(--white);
+      font-size:21px;
+    }
+
+    .principles {
+      max-width:1100px;
+      margin:45px auto 0;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .principle {
+      padding:30px;
+      border:1px solid var(--border);
+      border-radius:8px;
+      background:rgba(255,255,255,.018);
+    }
+
+    .principle strong {
+      display:block;
+      color:var(--gold);
+      margin-bottom:10px;
+      letter-spacing:1px;
+    }
+
+    .principle p {
+      color:var(--muted);
+      line-height:1.65;
+      font-size:13px;
+    }
+
+    .founder-wrap {
+      max-width:1080px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:55px;
+      align-items:center;
+    }
+
+    .founder-visual {
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 45%,rgba(150,70,210,.20),transparent 60%),
+        rgba(255,255,255,.015);
+    }
+
+    .founder-render {
+      display:block;
+      width:100%;
+      height:520px;
+      object-fit:contain;
+      filter:
+        drop-shadow(0 28px 34px rgba(0,0,0,.58))
+        drop-shadow(0 0 30px rgba(166,108,255,.15));
+    }
+
+    .founder-copy h2 {
+      font-size:clamp(42px,6vw,70px);
+      letter-spacing:-2px;
+    }
+
+    .founder-copy h3 {
+      color:var(--gold);
+      margin:8px 0 22px;
+      letter-spacing:3px;
+    }
+
+    .founder-copy p {
+      color:#c7c0cb;
+      line-height:1.8;
+    }
+
+    .studio-logo {
+      display:block;
+      max-width:390px;
+      max-height:210px;
+      object-fit:contain;
+      margin-top:28px;
+      filter:drop-shadow(0 0 24px rgba(166,108,255,.16));
+    }
+
+    .modal {
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:999;
+      padding:24px;
+      overflow:auto;
+      background:rgba(2,1,4,.88);
+      backdrop-filter:blur(9px);
+    }
+
+    .modal.open {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-box {
+      position:relative;
+      width:min(760px,100%);
+      max-height:90vh;
+      overflow:auto;
+      padding:42px;
+      background:#0d0911;
+      border:1px solid rgba(166,108,255,.32);
+      border-radius:12px;
+      box-shadow:0 30px 100px #000;
+    }
+
+    .modal-close {
+      position:absolute;
+      right:18px;
+      top:12px;
+      border:0;
+      background:none;
+      color:#aaa;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    .modal-box .tag {
+      color:var(--gold);
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:3px;
+    }
+
+    .modal-box h2 {
+      font-size:38px;
+      margin:12px 0 18px;
+    }
+
+    .modal-box p {
+      color:#c3bbc8;
+      line-height:1.75;
+      margin-top:12px;
+    }
+
+    .modal-box ul {
+      margin:18px 0 0 20px;
+      color:#c9c1ce;
+      line-height:1.9;
+    }
+
+    .modal-box strong { color:var(--gold-light); }
+
     /* =========================
        RESPONSIVE
     ========================= */
@@ -663,6 +853,20 @@
 
       .coming-grid {
         grid-template-columns: 1fr;
+      }
+
+      .principles,
+      .founder-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-copy {
+        text-align: center;
+      }
+
+      .studio-logo {
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .feature-inner {
@@ -808,7 +1012,7 @@
           </a>
 
           <span class="btn btn-secondary">
-            JUGAR PRÓXIMAMENTE
+            IP · PRÓXIMAMENTE
           </span>
 
         </div>
@@ -850,7 +1054,7 @@
 
         <!-- SURVIVAL -->
 
-        <article class="world-card">
+        <article class="world-card" onclick="openInfo('survival')">
 
           <img
             src="assets/lobby.png"
@@ -879,7 +1083,7 @@
 
         <!-- MINAS -->
 
-        <article class="world-card">
+        <article class="world-card" onclick="openInfo('minas')">
 
           <img
             src="assets/minas.png"
@@ -908,7 +1112,7 @@
 
         <!-- DUNGEON -->
 
-        <article class="world-card dungeon-card">
+        <article class="world-card dungeon-card" onclick="openInfo('dungeon')">
 
           <img
             src="assets/Dungeon.png"
@@ -937,7 +1141,7 @@
 
         <!-- CASINO -->
 
-        <article class="world-card casino-card">
+        <article class="world-card casino-card" onclick="openInfo('casino')">
 
           <img
             src="assets/Casino.png"
@@ -966,7 +1170,7 @@
 
         <!-- CRATES -->
 
-        <article class="world-card crates-card">
+        <article class="world-card crates-card" onclick="openInfo('crates')">
 
           <img
             src="assets/Crates.png"
@@ -995,7 +1199,7 @@
 
         <!-- EVENTOS -->
 
-        <article class="world-card">
+        <article class="world-card" onclick="document.getElementById('temporada').scrollIntoView()">
 
           <img
             src="assets/Evento.png"
@@ -1035,13 +1239,13 @@
         <div class="section-header">
 
           <div class="eyebrow">
-            EVENTO ESPECIAL · HALLOWEEN
+            EVENTO ACTIVO · HALLOWEEN
           </div>
 
           <h2>UNA NUEVA AMENAZA</h2>
 
           <p>
-            Cuando llegue Halloween, algo despertará en ARKANOS.
+            Algo ha despertado en ARKANOS. Accede desde /warps → Eventos y prepárate para combatir.
           </p>
 
         </div>
@@ -1073,7 +1277,7 @@
             </p>
 
             <div class="event-status">
-              ✦ PRÓXIMAMENTE EN ARKANOS ✦
+              ✦ EVENTO ACTIVO EN ARKANOS ✦
             </div>
 
           </div>
@@ -1155,6 +1359,119 @@
     </section>
 
 
+
+    <!-- HISTORIA -->
+
+    <section class="story-section" id="historia">
+
+      <div class="section-header">
+
+        <div class="eyebrow">
+          DE BEDROCK · A JAVA + BEDROCK
+        </div>
+
+        <h2>LA HISTORIA DE ARKANOS</h2>
+
+      </div>
+
+      <div class="story-wrap">
+
+        <p>
+          ARKANOS nació de una idea sencilla: crear un lugar para quienes
+          muchas veces quedaban fuera de otros servidores. Su primera etapa
+          fue construida en Minecraft Bedrock desde un celular, junto a un
+          amigo que creyó en el proyecto desde el principio.
+        </p>
+
+        <div class="story-quote">
+          “Si en otro lugar no eres bienvenido, aquí sí.”
+        </div>
+
+        <p>
+          Aquel mundo reunió a personas que terminaron convirtiéndose en
+          amigos y en parte de una comunidad que siguió existiendo incluso
+          después de que el servidor cerrara. Hoy ARKANOS regresa reconstruido
+          para Minecraft Java y Bedrock.
+        </p>
+
+        <p>
+          La idea sigue intacta: aquí no entras siendo un número más.
+          Entras para jugar, divertirte, progresar y formar parte de la
+          comunidad. Entras siendo parte de la GANG.
+        </p>
+
+      </div>
+
+      <div class="principles">
+
+        <div class="principle">
+          <strong>JAVA + BEDROCK</strong>
+          <p>El dispositivo desde el que juegas no debería dejarte fuera de la aventura.</p>
+        </div>
+
+        <div class="principle">
+          <strong>PROGRESA JUGANDO</strong>
+          <p>Puedes disfrutar y avanzar sin gastar dinero. El tiempo y la dedicación importan.</p>
+        </div>
+
+        <div class="principle">
+          <strong>APOYA SI QUIERES</strong>
+          <p>Las aportaciones ayudan a mantener ARKANOS y ofrecen comodidad o contenido adicional, no poder absoluto.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FUNDADOR -->
+
+    <section class="founder-section" id="fundador">
+
+      <div class="founder-wrap">
+
+        <div class="founder-visual">
+
+          <img
+            src="assets/ISMAxGG.png"
+            alt="ISMAxGG, fundador de ARKANOS"
+            class="founder-render"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="founder-copy">
+
+          <div class="eyebrow">
+            DETRÁS DE ARKANOS
+          </div>
+
+          <h2>ISMAxGG</h2>
+
+          <h3>FUNDADOR · CREADOR</h3>
+
+          <p>
+            Creador de ARKANOS y fundador de PANDAGANG STUDIOS.
+            El proyecto nació de la idea de construir una comunidad
+            donde cualquiera pudiera encontrar un lugar para jugar,
+            crear historias y formar parte de algo más grande que una partida.
+          </p>
+
+          <img
+            src="assets/PANDAGANG.png"
+            alt="PANDAGANG STUDIOS"
+            class="studio-logo"
+            loading="lazy"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     <!-- CARACTERÍSTICAS -->
 
     <section class="feature-strip">
@@ -1200,6 +1517,111 @@
     </p>
 
   </footer>
+
+
+  <div class="modal" id="infoModal">
+
+    <div class="modal-box">
+
+      <button class="modal-close" onclick="closeInfo()">×</button>
+
+      <div id="infoContent"></div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const info = {
+
+      survival: `
+        <span class="tag">01 · EL COMIENZO</span>
+        <h2>SURVIVAL</h2>
+        <p>La base sigue siendo Minecraft Survival, pero ARKANOS añade sistemas propios para que el mundo tenga actividad y progresión.</p>
+        <ul>
+          <li>Eventos aleatorios con monstruos personalizados, nombre, vida y daño propios.</li>
+          <li>Drops especiales para tradeos y progresión.</li>
+          <li>Misiones del Pase de Temporada: talar, minar, explorar, combatir, craftear, cultivar y cosechar.</li>
+          <li>Equipo y picos personalizados, economía, parcelas y tradeos especiales.</li>
+          <li>Usa <strong>/warps</strong> para acceder al Lobby, Dungeon, Minas, Casino, Parcelas, Crates y Eventos.</li>
+        </ul>
+      `,
+
+      minas: `
+        <span class="tag">02 · PROGRESA</span>
+        <h2>MINAS</h2>
+        <p>ARKANOS cuenta con tres minas progresivas, cada una con diferentes cantidades y tipos de recursos.</p>
+        <ul>
+          <li><strong>Mina I:</strong> acceso libre.</li>
+          <li><strong>Mina II y III:</strong> desbloqueo único con Arcas obtenidas dentro del juego.</li>
+          <li>Cada mina posee un bloque personalizado que puede entregar fragmentos especiales.</li>
+          <li>Los fragmentos se intercambian en el Lobby para conseguir picos mejores, encantamientos potentes y habilidades custom.</li>
+        </ul>
+        <p>Acceso: <strong>/warps → Minas</strong>.</p>
+      `,
+
+      dungeon: `
+        <span class="tag">03 · ENFRENTA EL DESAFÍO</span>
+        <h2>DUNGEON I</h2>
+        <p>La dificultad aumenta conforme desciendes. Las hordas aparecen durante el recorrido y al final espera el <strong>Centinela Ancestral</strong>.</p>
+        <ul>
+          <li>No pierdes tu inventario dentro de la Dungeon.</li>
+          <li>Los mobs entregan Monedas Élite directamente a quien realiza la baja.</li>
+          <li>Las monedas permiten obtener el Kit de las Profundidades.</li>
+          <li>El Centinela entrega Moneda Élite Mayor y el reparto considera la contribución de daño.</li>
+          <li>Tras vencer al jefe hay 10 segundos antes del regreso automático al Lobby.</li>
+        </ul>
+        <p>Acceso: <strong>/warps → Dungeon</strong>. Más Dungeons llegarán en futuras actualizaciones.</p>
+      `,
+
+      casino: `
+        <span class="tag">04 · PRUEBA TU SUERTE</span>
+        <h2>CASINO ARCANO</h2>
+        <p>El Banco del Casino cambia tus Arcas por <strong>Fichas Arcanas</strong>, la moneda utilizada en sus juegos.</p>
+        <ul>
+          <li>Varias ruletas con apuestas de 5 a 25 fichas: rojo, negro, verde o número exacto.</li>
+          <li>Máquinas de premios basadas en combinaciones de símbolos.</li>
+          <li>Tres Estrellas del Nether representan el premio mayor de las máquinas.</li>
+          <li>Las ganancias se reciben en fichas y el cambio de fichas a Arcas aplica una comisión.</li>
+        </ul>
+        <p>Acceso: <strong>/warps → Casino</strong>.</p>
+      `,
+
+      crates: `
+        <span class="tag">05 · COLECCIONA</span>
+        <h2>ARKANOS CRATES</h2>
+        <p>Cada caja está identificada por su holograma y utiliza su propia llave.</p>
+        <ul>
+          <li>Packs y objetos exclusivos.</li>
+          <li>Cosméticos visuales.</li>
+          <li>Arcas, materiales y objetos variados.</li>
+          <li>Llaves adicionales.</li>
+          <li>Ítems especiales de colección que recibirán nuevos tradeos.</li>
+        </ul>
+        <p>Acceso: <strong>/warps → Crates</strong>. Los nombres definitivos de las cuatro cajas se añadirán cuando queden confirmados.</p>
+      `
+
+    };
+
+    function openInfo(id) {
+      document.getElementById("infoContent").innerHTML = info[id];
+      document.getElementById("infoModal").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeInfo() {
+      document.getElementById("infoModal").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("infoModal").addEventListener("click", function(e) {
+      if (e.target.id === "infoModal") closeInfo();
+    });
+
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeInfo();
+    });
+  </script>
 
 </body>
 </html>
