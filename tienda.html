@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ARKANOS STORE | PANDAGANG STUDIOS</title>
+
+<meta
+  name="description"
+  content="Tienda oficial de ARKANOS: rangos, Battle Pass Premium y servicios."
+>
+
+<style>
+:root {
+  --bg: #07050a;
+  --panel: #100b16;
+  --panel2: #15101c;
+  --purple: #a66cff;
+  --gold: #ffc642;
+  --white: #f8f5ff;
+  --muted: #aaa2b4;
+  --border: rgba(255,255,255,.11);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(93,38,128,.20),
+      transparent 32%
+    ),
+    var(--bg);
+
+  color: var(--white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  background: rgba(7,5,10,.93);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1200px;
+  height: 72px;
+
+  margin: auto;
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.star {
+  color: var(--gold);
+  font-size: 27px;
+}
+
+.brand strong {
+  letter-spacing: 4px;
+}
+
+.brand span {
+  display: block;
+
+  color: #8f8798;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  margin-top: 4px;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.home {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+
+  padding: 11px 17px;
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 95px 24px 65px;
+
+  text-align: center;
+}
+
+.hero .studio {
+  color: var(--gold);
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 7px;
+}
+
+.hero h1 {
+  font-size: clamp(48px,8vw,92px);
+
+  letter-spacing: 5px;
+
+  margin: 14px 0 12px;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 760px;
+
+  margin: auto;
+
+  color: var(--muted);
+
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+.notice {
+  max-width: 920px;
+
+  margin: 28px auto 0;
+
+  padding: 15px 18px;
+
+  border: 1px solid rgba(255,198,66,.25);
+
+  background: rgba(255,198,66,.05);
+
+  border-radius: 10px;
+
+  color: #ddd3e5;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+section {
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 60px 24px;
+}
+
+.section-head {
+  text-align: center;
+
+  margin-bottom: 32px;
+}
+
+.section-head span {
+  color: var(--gold);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+}
+
+.section-head h2 {
+  font-size: 34px;
+
+  margin-top: 10px;
+}
+
+.section-head p {
+  color: var(--muted);
+
+  margin: 10px auto 0;
+
+  max-width: 700px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   RANGOS
+========================================================= */
+
+.ranks {
+  display: grid;
+
+  grid-template-columns: repeat(2,minmax(0,1fr));
+
+  gap: 18px;
+}
+
+.rank-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(166,108,255,.06),
+      rgba(255,255,255,.015)
+    );
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  padding: 26px;
+
+  box-shadow:
+    0 18px 55px rgba(0,0,0,.22);
+}
+
+.rank-card.supreme {
+  border-color: rgba(255,198,66,.45);
+
+  box-shadow:
+    0 0 45px rgba(255,198,66,.07);
+}
+
+.eyebrow {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: var(--purple);
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+}
+
+.supreme .eyebrow {
+  color: var(--gold);
+}
+
+.rank-card h3 {
+  font-size: 27px;
+
+  margin: 8px 0 18px;
+}
+
+.rank-card ul {
+  list-style: none;
+
+  display: grid;
+
+  gap: 9px;
+
+  margin-bottom: 22px;
+
+  color: #cfc8d5;
+
+  font-size: 13px;
+}
+
+.rank-card li::before {
+  content: "✦";
+
+  color: var(--gold);
+
+  margin-right: 9px;
+}
+
+
+/* =========================================================
+   BOTONES DE COMPRA
+========================================================= */
+
+.buy-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.buy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 15px;
+
+  border:
+    1px solid rgba(166,108,255,.28);
+
+  background: #0d0912;
+
+  border-radius: 9px;
+
+  transition: .2s;
+}
+
+.buy:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--purple);
+}
+
+.buy.permanent {
+  border-color:
+    rgba(255,198,66,.30);
+}
+
+.buy.permanent:hover {
+  border-color: var(--gold);
+}
+
+.buy small {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: var(--muted);
+}
+
+.buy strong {
+  font-size: 21px;
+}
+
+.buy span {
+  font-size: 10px;
+
+  color: #8f8798;
+}
+
+
+/* =========================================================
+   EXTRAS
+========================================================= */
+
+.extras {
+  display: grid;
+
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 18px;
+}
+
+.extra {
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  padding: 26px;
+}
+
+.extra h3 {
+  font-size: 22px;
+
+  margin-bottom: 8px;
+}
+
+.extra p {
+  color: var(--muted);
+
+  line-height: 1.6;
+
+  font-size: 13px;
+
+  min-height: 63px;
+}
+
+.price {
+  font-size: 30px;
+
+  font-weight: 900;
+
+  margin: 20px 0;
+
+  color: var(--gold);
+}
+
+.cta {
+  display: block;
+
+  text-align: center;
+
+  padding: 14px;
+
+  border-radius: 8px;
+
+  background: var(--gold);
+
+  color: #120d07;
+
+  font-weight: 900;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   PAYPAL
+========================================================= */
+
+.paypal {
+  max-width: 950px;
+
+  margin: 20px auto 70px;
+
+  padding: 30px;
+
+  border:
+    1px solid rgba(166,108,255,.25);
+
+  background:
+    rgba(166,108,255,.05);
+
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.paypal h3 {
+  font-size: 24px;
+}
+
+.paypal p {
+  color: var(--muted);
+
+  line-height: 1.65;
+
+  margin: 10px auto 20px;
+
+  max-width: 720px;
+}
+
+.discord {
+  display: inline-block;
+
+  padding: 14px 22px;
+
+  border: 1px solid var(--purple);
+
+  color: #e6d9ff;
+
+  border-radius: 8px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   CONDICIONES
+========================================================= */
+
+.rules {
+  max-width: 950px;
+
+  margin: auto;
+
+  padding: 0 24px 70px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.75;
+}
+
+.rules strong {
+  color: var(--white);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  border-top:
+    1px solid var(--border);
+
+  text-align: center;
+
+  padding: 28px;
+
+  color: #777080;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px) {
+
+  nav a:not(.home) {
+    display: none;
+  }
+
+  .ranks,
+  .extras {
+    grid-template-columns: 1fr;
+  }
+
+  .buy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 70px;
+  }
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+<div class="nav">
+
+<a class="brand" href="index.html">
+
+<div class="star">
+✦
+</div>
+
+<div>
+
+<strong>
+ARKANOS
+</strong>
+
+<span>
+PANDAGANG STUDIOS
+</span>
+
+</div>
+
+</a>
+
+
+<nav>
+
+<a href="#rangos">
+RANGOS
+</a>
+
+<a href="#extras">
+BATTLE PASS
+</a>
+
+<a href="#extras">
+DESBANEOS
+</a>
+
+<a
+class="home"
+href="index.html"
+>
+VOLVER A INICIO
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<div class="hero">
+
+<div class="studio">
+PANDAGANG STUDIOS PRESENTA
+</div>
+
+<h1>
+ARKANOS <span>STORE</span>
+</h1>
+
+<p>
+Apoya el desarrollo de ARKANOS y elige el producto que
+mejor encaje contigo. Los rangos están disponibles por
+30 días o de forma permanente.
+</p>
+
+
+<div class="notice">
+
+<strong>
+IMPORTANTE:
+</strong>
+
+Actualmente la entrega es verificada por el staff.
+
+Después de pagar, conserva tu comprobante y abre un
+ticket de compra en Discord indicando tu usuario de
+Minecraft y el producto adquirido.
+
+Nunca publiques comprobantes o datos de pago en
+canales públicos.
+
+</div>
+
+</div>
+
+
+
+<!-- ======================================================
+     RANGOS
+====================================================== -->
+
+<section id="rangos">
+
+
+<div class="section-head">
+
+<span>
+RANGOS OFICIALES
+</span>
+
+<h2>
+Elige tu rango
+</h2>
+
+<p>
+Cada rango utiliza su propio kit semanal.
+Un rango superior no incluye el derecho a reclamar
+los kits de rangos inferiores.
+</p>
+
+</div>
+
+
+<div class="ranks">
+
+
+<!-- ======================================================
+     ARCADIA
+====================================================== -->
+
+<article class="rank-card">
+
+<div class="rank-top">
+
+<span class="eyebrow">
+Entrada premium
+</span>
+
+<h3>
+Arcadia
+</h3>
+
+</div>
+
+
+<ul>
+
+<li>
+Kit semanal de diamante Prot V
+</li>
+
+<li>
+Fly en Survival, Parcelas y Lobby
+</li>
+
+<li>
+/back · /workbench · /hat
+</li>
+
+<li>
+Homes de Arcadia
+</li>
+
+</ul>
+
+
+<div class="buy-grid">
+
+
+<a
+class="buy"
+href="https://mpago.la/21zDyCb"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+30 DÍAS
+</small>
+
+<strong>
+$69 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+<a
+class="buy permanent"
+href="https://mpago.la/2fCuN1x"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+PERMANENTE
+</small>
+
+<strong>
+$179 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     ASTRAL
+====================================================== -->
+
+<article class="rank-card">
+
+<div class="rank-top">
+
+<span class="eyebrow">
+Progresión avanzada
+</span>
+
+<h3>
+Astral
+</h3>
+
+</div>
+
+
+<ul>
+
+<li>
+Kit semanal Prot VI + Mending
+</li>
+
+<li>
+Fly + /enderchest + /near
+</li>
+
+<li>
+Fortuna IV y herramientas mejoradas
+</li>
+
+<li>
+Homes de Astral
+</li>
+
+</ul>
+
+
+<div class="buy-grid">
+
+
+<a
+class="buy"
+href="https://mpago.la/1iwPChA"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+30 DÍAS
+</small>
+
+<strong>
+$109 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+<a
+class="buy permanent"
+href="https://mpago.la/1xjhJTP"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+PERMANENTE
+</small>
+
+<strong>
+$299 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     VÉRTICE
+====================================================== -->
+
+<article class="rank-card">
+
+<div class="rank-top">
+
+<span class="eyebrow">
+Utilidades premium
+</span>
+
+<h3>
+Vértice
+</h3>
+
+</div>
+
+
+<ul>
+
+<li>
+Kit semanal Prot VII / Filo VII
+</li>
+
+<li>
+/repair + /anvil
+</li>
+
+<li>
+Smithing · Stonecutter · Loom
+</li>
+
+<li>
+Dos picos especializados
+</li>
+
+</ul>
+
+
+<div class="buy-grid">
+
+
+<a
+class="buy"
+href="https://mpago.la/2539ACq"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+30 DÍAS
+</small>
+
+<strong>
+$169 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+<a
+class="buy permanent"
+href="https://mpago.la/21iy3fw"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+PERMANENTE
+</small>
+
+<strong>
+$449 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     AURELIS
+====================================================== -->
+
+<article class="rank-card">
+
+<div class="rank-top">
+
+<span class="eyebrow">
+Salto a Netherite
+</span>
+
+<h3>
+Aurelis
+</h3>
+
+</div>
+
+
+<ul>
+
+<li>
+Kit semanal Netherite Prot VIII
+</li>
+
+<li>
+/feed + /repair
+</li>
+
+<li>
+Tótem + manzana encantada
+</li>
+
+<li>
+Homes de Aurelis
+</li>
+
+</ul>
+
+
+<div class="buy-grid">
+
+
+<a
+class="buy"
+href="https://mpago.la/2EWMJ6R"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+30 DÍAS
+</small>
+
+<strong>
+$229 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+<a
+class="buy permanent"
+href="https://mpago.la/24KZ9oJ"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+PERMANENTE
+</small>
+
+<strong>
+$649 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     UMBRA
+====================================================== -->
+
+<article class="rank-card">
+
+<div class="rank-top">
+
+<span class="eyebrow">
+Rango élite
+</span>
+
+<h3>
+Umbra
+</h3>
+
+</div>
+
+
+<ul>
+
+<li>
+Kit semanal Netherite Prot IX
+</li>
+
+<li>
+/heal + /feed
+</li>
+
+<li>
+/repair enchanted
+</li>
+
+<li>
+Shulker + equipo avanzado
+</li>
+
+</ul>
+
+
+<div class="buy-grid">
+
+
+<a
+class="buy"
+href="https://mpago.la/1DkpTtU"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+30 DÍAS
+</small>
+
+<strong>
+$299 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+<a
+class="buy permanent"
+href="https://mpago.la/1jRB5v7"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+PERMANENTE
+</small>
+
+<strong>
+$849 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     ARCANO SUPREMO
+====================================================== -->
+
+<article class="rank-card supreme">
+
+<div class="rank-top">
+
+<span class="eyebrow">
+Máximo rango comercial
+</span>
+
+<h3>
+Arcano Supremo
+</h3>
+
+</div>
+
+
+<ul>
+
+<li>
+Kit semanal Netherite Prot X / Filo X
+</li>
+
+<li>
+/heal + repair armor/enchanted
+</li>
+
+<li>
+Eficiencia XIII · Fortuna X
+</li>
+
+<li>
+2 tótems + arco premium
+</li>
+
+</ul>
+
+
+<div class="buy-grid">
+
+
+<a
+class="buy"
+href="https://mpago.la/29ZCQPP"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+30 DÍAS
+</small>
+
+<strong>
+$399 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+<a
+class="buy permanent"
+href="https://mpago.la/1Lhdd5p"
+target="_blank"
+rel="noopener"
+>
+
+<small>
+PERMANENTE
+</small>
+
+<strong>
+$1,099 MXN
+</strong>
+
+<span>
+Pagar con Mercado Pago
+</span>
+
+</a>
+
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ======================================================
+     BATTLE PASS + DESBANEOS
+====================================================== -->
+
+<section id="extras">
+
+
+<div class="section-head">
+
+<span>
+MÁS DE ARKANOS
+</span>
+
+<h2>
+Battle Pass y servicios
+</h2>
+
+<p>
+Productos adicionales de lanzamiento.
+El catálogo podrá ampliarse con nuevos kits,
+cosméticos y contenido de temporada.
+</p>
+
+</div>
+
+
+
+<div class="extras">
+
+
+<!-- BATTLE PASS -->
+
+<article class="extra">
+
+<h3>
+✦ Battle Pass Premium
+</h3>
+
+<p>
+Acceso a la ruta Premium de recompensas
+de la temporada actual de ARKANOS.
+</p>
+
+<div class="price">
+$129 MXN
+</div>
+
+<a
+class="cta"
+href="https://mpago.la/2TCcx18"
+target="_blank"
+rel="noopener"
+>
+COMPRAR
+</a>
+
+</article>
+
+
+
+<!-- DESBAN MINECRAFT -->
+
+<article class="extra">
+
+<h3>
+🔓 Desbaneo Minecraft
+</h3>
+
+<p>
+Solicitud de restauración de acceso al servidor.
+Sujeto a elegibilidad y revisión de la sanción.
+</p>
+
+<div class="price">
+$199 MXN
+</div>
+
+<a
+class="cta"
+href="https://mpago.la/1J2jATJ"
+target="_blank"
+rel="noopener"
+>
+CONTINUAR
+</a>
+
+</article>
+
+
+
+<!-- DESBAN DISCORD -->
+
+<article class="extra">
+
+<h3>
+🔓 Desbaneo Discord
+</h3>
+
+<p>
+Solicitud de restauración de acceso al Discord oficial.
+Sujeto a elegibilidad y revisión.
+</p>
+
+<div class="price">
+$149 MXN
+</div>
+
+<a
+class="cta"
+href="https://mpago.la/2WqZt7U"
+target="_blank"
+rel="noopener"
+>
+CONTINUAR
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ======================================================
+     PAYPAL
+====================================================== -->
+
+<div class="paypal">
+
+<h3>
+¿Prefieres pagar con PayPal?
+</h3>
+
+<p>
+Abre un ticket privado en nuestro Discord antes
+de realizar el pago.
+
+El staff confirmará el producto, importe y proceso
+correspondiente.
+
+No envíes datos bancarios en canales públicos.
+</p>
+
+
+<a
+class="discord"
+href="https://discord.gg/63b8Gk6kn2"
+target="_blank"
+rel="noopener"
+>
+ABRIR DISCORD OFICIAL
+</a>
+
+</div>
+
+
+
+<!-- ======================================================
+     CONDICIONES
+====================================================== -->
+
+<div class="rules">
+
+<strong>
+Condiciones básicas:
+</strong>
+
+Los rangos temporales duran 30 días.
+
+Los rangos permanentes se mantienen mientras
+ARKANOS opere, sujetos a ajustes razonables de balance.
+
+Las ventajas pueden modificarse para proteger
+la economía y jugabilidad.
+
+Los desbaneos no otorgan inmunidad frente a futuras
+sanciones y determinados casos pueden no ser elegibles.
+
+La compra no concede permisos administrativos.
+
+El equipo PvE máximo puede seguir obteniéndose
+jugando dentro de ARKANOS.
+
+</div>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+© 2026 PANDAGANG STUDIOS · ARKANOS
+
+</footer>
+
+
+</body>
+</html>
