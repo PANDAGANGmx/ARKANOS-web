@@ -818,6 +818,24 @@
 
     .modal-box strong { color:var(--gold-light); }
 
+
+    /* VARYN · LANZAMIENTO EDITORIAL */
+    .varyn-launch { position:relative; overflow:hidden; padding:110px 24px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:radial-gradient(circle at 76% 45%,rgba(142,32,52,.22),transparent 30%),radial-gradient(circle at 28% 45%,rgba(112,46,145,.18),transparent 36%),#050407; }
+    .varyn-launch::before { content:""; position:absolute; inset:0; background:linear-gradient(110deg,rgba(255,255,255,.025),transparent 30%); pointer-events:none; }
+    .varyn-wrap { position:relative; z-index:1; max-width:1180px; margin:auto; display:grid; grid-template-columns:1.05fr .95fr; gap:75px; align-items:center; }
+    .varyn-kicker { color:var(--gold); font-size:11px; font-weight:900; letter-spacing:6px; margin-bottom:18px; }
+    .varyn-copy h2 { font-size:clamp(58px,8vw,104px); line-height:.82; letter-spacing:-5px; }
+    .varyn-copy h3 { margin-top:22px; color:#d6a1ff; font-size:clamp(25px,4vw,43px); letter-spacing:8px; }
+    .varyn-copy p { max-width:610px; margin-top:27px; color:#d1c9d6; font-size:17px; line-height:1.85; }
+    .varyn-meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:27px; }
+    .varyn-meta span { border:1px solid var(--border); padding:10px 14px; color:#bbb2c1; font-size:9px; font-weight:900; letter-spacing:2px; }
+    .varyn-actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:32px; }
+    .varyn-read { background:linear-gradient(135deg,#ffbd27,#ffe08c); color:#08060a; box-shadow:0 15px 45px rgba(255,190,39,.16); }
+    .varyn-read:hover { transform:translateY(-3px) scale(1.015); box-shadow:0 20px 60px rgba(255,190,39,.25); }
+    .varyn-visual { min-height:650px; display:flex; align-items:center; justify-content:center; perspective:1400px; }
+    .varyn-cover { width:min(420px,88%); max-height:650px; object-fit:contain; transform:rotateY(-9deg) rotateX(2deg); filter:drop-shadow(35px 38px 40px rgba(0,0,0,.72)) drop-shadow(0 0 35px rgba(167,54,74,.20)); transition:.55s ease; }
+    .varyn-cover:hover { transform:rotateY(-2deg) rotateX(0) translateY(-8px) scale(1.025); filter:drop-shadow(28px 42px 48px rgba(0,0,0,.78)) drop-shadow(0 0 48px rgba(166,108,255,.24)); }
+
     /* =========================
        RESPONSIVE
     ========================= */
@@ -827,6 +845,12 @@
       nav a:not(.shop-button) {
         display: none;
       }
+
+      .varyn-wrap { grid-template-columns:1fr; gap:30px; }
+      .varyn-copy { text-align:center; }
+      .varyn-copy p { margin-left:auto; margin-right:auto; }
+      .varyn-meta,.varyn-actions { justify-content:center; }
+      .varyn-visual { min-height:520px; }
 
       .world-grid {
         grid-template-columns: 1fr;
@@ -1025,6 +1049,23 @@
 
       </div>
 
+    </section>
+
+
+
+    <!-- PANDAGANG STUDIOS · VARYN -->
+    <section class="varyn-launch" id="varyn">
+      <div class="varyn-wrap">
+        <div class="varyn-copy">
+          <div class="varyn-kicker">PANDAGANG STUDIOS · NUEVO LANZAMIENTO 2026</div>
+          <h2>VARYN</h2>
+          <h3>FRACTURA CERO</h3>
+          <p>El primer libro del universo VARYN ya forma parte de PANDAGANG STUDIOS. Entra a la historia, descubre la fractura y comienza el viaje desde nuestro lector oficial.</p>
+          <div class="varyn-meta"><span>LIBRO I</span><span>53 PÁGINAS</span><span>LECTURA GRATUITA</span><span>EDICIÓN 2026</span></div>
+          <div class="varyn-actions"><a class="btn varyn-read" href="varyn/">LEER VARYN AHORA →</a></div>
+        </div>
+        <div class="varyn-visual"><a href="varyn/" aria-label="Leer VARYN: Fractura Cero"><img class="varyn-cover" src="varyn/pages/page-001.jpg" alt="Portada de VARYN: Fractura Cero"></a></div>
+      </div>
     </section>
 
 
